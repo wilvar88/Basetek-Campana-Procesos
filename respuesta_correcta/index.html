@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaseTek | ¡Hábito Correcto! - Campaña Fuente Única</title>
+    <title>Basetek | ¡Hábito Correcto! - Día 1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -230,7 +230,7 @@
         <div class="icon-check">✔</div>
 
         <div class="badge-pill">
-            ✦ ¡Hábito Correcto! • Semana 1 ✦
+            ✦ ¡Hábito Correcto! • Día 1 ✦
         </div>
 
         <h1>¡Exacto! Ese es el reflejo de excelencia que buscamos</h1>
@@ -241,7 +241,7 @@
 
         <!-- Explicación Pedagógica del Hábito -->
         <div class="info-box">
-            <h3>🛡️ ¿Por qué este hábito protege a BaseTek y a ti?</h3>
+            <h3>🛡️ ¿Por qué este hábito protege a Basetek y a ti?</h3>
             <ul>
                 <li><span class="highlight">Garantía de Vigencia:</span> El Área de Procesos actualiza constantemente requisitos legales, campos y controles. Solo el repositorio oficial garantiza que tienes la última versión.</li>
                 <li><span class="highlight">Cero Reprocesos:</span> Diligenciar un formato obsoleto invalida la solicitud y te obliga a repetirla desde cero, retrasando la operación.</li>
@@ -260,11 +260,32 @@
         </a>
 
         <div class="footer">
-            <p><strong>BaseTek Colombia</strong> &bull; Área de Procesos & Gestión del Conocimiento</p>
+            <p><strong>Basetek Colombia</strong> &bull; Área de Procesos & Gestión del Conocimiento</p>
             <p style="margin-top: 5px; font-size: 12px; color: #94a3b8;">Campaña de Cultura Organizacional "Fuente Única" 2026</p>
         </div>
 
     </div>
 
+    <!-- RASTREO AUTOMÁTICO SILENCIOSO A GOOGLE SHEETS -->
+    <script>
+        (function() {
+            try {
+                var p = new URLSearchParams(window.location.search);
+                var user = p.get('user');
+                if (user) {
+                    var webhookUrl = "https://script.google.com/macros/s/AKfycbyBR4hbsirlpjxvQ7_Ns_QaGDfsMl1fIjlc3oJGO-_qm92_MZ0XfxaHHG_C0eN3anwpsg/exec"
+                        + "?user=" + encodeURIComponent(user)
+                        + "&fase=dia1"
+                        + "&accion=Respuesta+Reto+Día+1"
+                        + "&respuesta=Opcion+B"
+                        + "&correcta=true"
+                        + "&tipo=pixel";
+                    new Image().src = webhookUrl;
+                }
+            } catch(e) {
+                console.error("Tracking error:", e);
+            }
+        })();
+    </script>
 </body>
 </html>

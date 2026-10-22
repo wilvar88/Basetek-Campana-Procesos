@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basetek • Redirigiendo a SharePoint</title>
+    <meta http-equiv="refresh" content="0; url=https://basetekco.sharepoint.com/sites/BASETEK1/SitePages/SCHome.aspx">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: linear-gradient(135deg, #072244 0%, #004b99 50%, #0066cc 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.94);
+            color: #0f172a;
+            padding: 38px 32px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 86, 179, 0.25);
+            max-width: 440px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0056b3;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .spin {
+            width: 46px;
+            height: 46px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #0056b3;
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+            margin: 0 auto 18px auto;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        h2 { font-size: 20px; font-weight: 700; color: #072244; margin-bottom: 8px; }
+        p { font-size: 13px; color: #64748b; margin-bottom: 20px; line-height: 1.5; }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0056b3 0%, #0077e6 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 13px 26px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 4px 14px rgba(0, 86, 179, 0.3);
+        }
+    </style>
+    <script>
+        (function() {
+            var dest = "https://basetekco.sharepoint.com/sites/BASETEK1/SitePages/SCHome.aspx";
+            try {
+                var p = new URLSearchParams(window.location.search);
+                var u = p.get('user') || 'anonimo@basetek.com.co';
+                var a = p.get('accion') || 'Clic en Repositorio Oficial';
+                var f = p.get('fase') || 'dia1';
+                var webhook = "https://script.google.com/macros/s/AKfycbyBR4hbsirlpjxvQ7_Ns_QaGDfsMl1fIjlc3oJGO-_qm92_MZ0XfxaHHG_C0eN3anwpsg/exec"
+                    + "?user=" + encodeURIComponent(u)
+                    + "&fase=" + encodeURIComponent(f)
+                    + "&accion=" + encodeURIComponent(a)
+                    + "&tipo=pixel";
+                new Image().src = webhook;
+            } catch(e) {
+                console.error(e);
+            }
+
+            // Redirección inmediata a SharePoint (sin restricciones de iframes)
+            window.location.replace(dest);
+        })();
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">Campaña Fuente Única</div>
+        <div class="spin"></div>
+        <h2>Accediendo al Repositorio Oficial...</h2>
+        <p>Te estamos redirigiendo a la documentación oficial en SharePoint.</p>
+        <a class="btn" href="https://basetekco.sharepoint.com/sites/BASETEK1/SitePages/SCHome.aspx">Continuar a SharePoint &rarr;</a>
+    </div>
+</body>
+</html>
